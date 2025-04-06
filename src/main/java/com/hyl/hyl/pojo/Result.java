@@ -24,6 +24,11 @@ public class Result {
     public static Result success(Object data){//查询成功的响应
         return new Result(1,"success",data);
     }
+
+    public static Result success(String message,Object data) {//上传成功的响应
+        return new Result(1, message, data);
+    }
+
     public static Result error(String message){//失败的响应
         return new Result(0,message,null);
     }

@@ -21,7 +21,7 @@ public class UserController {
     @GetMapping("/getUserData/{id}")
     public Result getUserData(@PathVariable("id") Integer id) {
         User userList=userService.findAll(id);
-//        log.info("用户数据查询成功");
+        log.info("用户数据查询成功");
     return Result.success(userList);
     }
 
@@ -29,7 +29,7 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public Result deleteUser(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
-//        log.info("数据删除成功");
+        log.info("数据删除成功");
         return Result.success();
     }
 
@@ -37,7 +37,7 @@ public class UserController {
     @PostMapping("/reg")
     public Result addUser(@RequestBody User user) {
         userService.addUser(user);
-//        log.info("数据新增成功");
+        log.info("数据新增成功");
         return Result.success();
     }
 
@@ -45,7 +45,7 @@ public class UserController {
     @PostMapping("/updateUser")
     public Result updateUser(@RequestBody User user) {
         userService.updateUser(user);
-//        log.info("密码修改成功");
+        log.info("密码修改成功");
         return Result.success();
     }
 
@@ -53,7 +53,7 @@ public class UserController {
     @PostMapping("/updateInfo")
     public Result updateInfo(@RequestBody User user) {
         userService.updateInfo(user);
-//        log.info("信息修改成功");
+        log.info("信息修改成功");
         return Result.success();
     }
 
@@ -62,7 +62,7 @@ public class UserController {
     public Result getUserInfoByToken(@PathVariable("loginName") String loginName) {
 //        log.info("开始获取用户信息");
         User user=userService.getUserInfoByToken(loginName);
-//        log.info("用户信息获取成功");
+        log.info("用户信息获取成功");
         return Result.success(user);
     }
 }
