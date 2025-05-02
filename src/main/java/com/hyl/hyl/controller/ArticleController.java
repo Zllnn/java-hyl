@@ -1,5 +1,6 @@
 package com.hyl.hyl.controller;
 
+import com.hyl.hyl.pojo.Classify;
 import com.hyl.hyl.pojo.PageBean;
 import com.hyl.hyl.pojo.Result;
 import com.hyl.hyl.service.ArticleService;
@@ -21,4 +22,12 @@ public class ArticleController {
         PageBean pageBean = articleService.getArticle(page, size);
         return Result.success(pageBean);
     }
+
+    @GetMapping("/Count")
+    public Result getArticleCount () {
+        Classify classify = articleService.getArticleCount();
+        return Result.success(classify);
+    }
+
+
 }

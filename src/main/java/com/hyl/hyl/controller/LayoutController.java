@@ -26,11 +26,10 @@ public class LayoutController {
         }
 
         try {
-
             // 获取上传文件的原始文件名
             String originalFilename = file.getOriginalFilename();
             // 指定文件保存的目录
-            String filePath = "avatars/" + originalFilename;
+            String filePath = "D:\\Hyl\\avatars" + originalFilename;
             File dest = new File(filePath);
             // 将上传的文件保存到指定位置
             file.transferTo(dest);

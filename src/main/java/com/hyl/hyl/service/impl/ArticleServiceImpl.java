@@ -3,6 +3,7 @@ package com.hyl.hyl.service.impl;
 import com.hyl.hyl.mapper.AriticleMapper;
 import com.hyl.hyl.pojo.PageBean;
 import com.hyl.hyl.pojo.article;
+import com.hyl.hyl.pojo.Classify;
 import com.hyl.hyl.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,12 @@ public class ArticleServiceImpl implements ArticleService {
         //创建PageBean对象
         PageBean pageBean = new PageBean(total,articles);
         return pageBean;
+    }
+
+    @Override
+    public Classify getArticleCount () {
+        Long funnyCount = articleMapper.getArticleCountFun();
+        Long story = articleMapper.getArticleCountStory();
+        return new Classify(funnyCount,story);
     }
 }

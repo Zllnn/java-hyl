@@ -17,4 +17,11 @@ public interface AriticleMapper {
     @Select("SELECT * FROM article LIMIT #{page},#{pageSize}")
     List<article> getArticle(Long page, Long pageSize);
 
+    //查询趣事数量
+    @Select("SELECT COUNT(articleGroup) FROM article where articleGroup='趣事'")
+    Long getArticleCountFun ();
+
+    //查询小说数量
+    @Select("SELECT count(articleGroup) FROM article where articleGroup='小说'")
+    Long getArticleCountStory();
 }
