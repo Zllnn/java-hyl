@@ -65,4 +65,11 @@ public class UserController {
         log.info("用户信息获取成功");
         return Result.success(user);
     }
+
+    @PostMapping("/updataImage")
+    public Result updataImage(@RequestBody User user) {
+        userService.updataImage(user);
+        log.info("头像修改成功");
+        return Result.success();
+    }
 }

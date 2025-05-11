@@ -34,4 +34,8 @@ public interface UserMapper {
     //通过loginName查找用户id
     @Select("SELECT id FROM user WHERE loginName = #{loginName}")
     User getUserInfoByloginName(String loginName);
+
+    //头像上传
+    @Update("update user set imageUrl = #{imageUrl} where id = #{id}")
+    void updataImage(User user);
 }

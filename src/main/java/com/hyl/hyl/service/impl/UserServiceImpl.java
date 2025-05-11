@@ -64,4 +64,11 @@ public class UserServiceImpl implements UserService {
 //        tempUser.setId(Integer.parseInt(taken.get("id").toString()));
         return userMapper.getUserInfoByloginName(loginName);
     }
+
+    //上传头像
+    @Override
+    public void updataImage(User user) {
+        userMapper.updataImage(user);
+    }
+
 }

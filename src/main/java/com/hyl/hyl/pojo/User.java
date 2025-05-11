@@ -15,4 +15,5 @@ public class User {
     private String  code;
     private String studentId;
     private int id;
+    private String imageUrl;
 }

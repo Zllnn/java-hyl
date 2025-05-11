@@ -25,4 +25,7 @@ public interface UserService {
 
     //通过token获取用户信息
     User getUserInfoByToken(String loginName);
+
+    //上传头像
+    void updataImage(User user);
 }
