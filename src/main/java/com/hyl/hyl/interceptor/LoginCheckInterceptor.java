@@ -32,7 +32,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 
         //判断令牌是否存在，如果不存在，返回错误结果（未登录）
         if(!StringUtils.hasLength(taken)){
-//            log.info("令牌不存在，拦截");
+            log.info("令牌不存在，拦截");
             Result error= Result.error("未登录");
             String notLogin = JSONObject.toJSONString(error);
             response.getWriter().write(notLogin);
@@ -44,7 +44,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             JwtUtils.parseJwt(taken);
         }catch (Exception e){
             e.printStackTrace();
-//            log.info("令牌过期，拦截");
+            log.info("令牌过期，拦截");
             Result error= Result.error("登录过期");
             String expired = JSONObject.toJSONString(error);
             response.getWriter().write(expired);
