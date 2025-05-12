@@ -15,8 +15,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 注册拦截器
-        registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/**");
-        // .excludePathPatterns("/login");  // 这里可以排除登录页面不被拦截
+        registry.addInterceptor(loginCheckInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns(
+                "/upload/**" // 排除头像静态资源路径
+        );
+        // .excludePathPatterns("/login");  // 这里可以排除登录页面不被拦截 （这里不用排除，jwt拦截器已经排除）
     }
 }
 
