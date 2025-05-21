@@ -57,12 +57,12 @@ public class UserServiceImpl implements UserService {
 
     //通过token获取用户信息
     @Override
-    public User getUserInfoByToken(String loginName) {
+    public User getUserInfoByToken(String loginName, String token) {
 
-//        Claims taken= JwtUtils.parseJwt(loginName);
-//        User tempUser = new User();                                     //
-//        tempUser.setId(Integer.parseInt(taken.get("id").toString()));
-        return userMapper.getUserInfoByloginName(loginName);
+        Claims userData= JwtUtils.parseJwt(token);
+        User tempUser = new User();
+        tempUser.setId(Integer.parseInt(userData.get("id").toString()));
+        return tempUser;
     }
 
     //上传头像

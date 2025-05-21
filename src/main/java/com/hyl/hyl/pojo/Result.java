@@ -25,6 +25,10 @@ public class Result {
         return new Result(1,"success",data);
     }
 
+    public static Result success(String message,int code){//上传成功的响应
+        return new Result(1, message, null);
+    }
+
     public static Result success(String message,Object data) {//上传成功的响应
         return new Result(1, message, data);
     }

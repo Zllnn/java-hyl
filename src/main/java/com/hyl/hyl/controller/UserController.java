@@ -59,9 +59,9 @@ public class UserController {
 
     //使用loginName获取用户信息
     @GetMapping("/getUserInfoByToken/{loginName}")
-    public Result getUserInfoByToken(@PathVariable("loginName") String loginName) {
+    public Result getUserInfoByToken(@PathVariable("loginName") String loginName,@RequestHeader(value = "taken", required = false) String token) {
 //        log.info("开始获取用户信息");
-        User user=userService.getUserInfoByToken(loginName);
+        User user=userService.getUserInfoByToken(loginName,token);
         log.info("用户信息获取成功");
         return Result.success(user);
     }
